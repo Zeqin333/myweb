@@ -1,0 +1,48 @@
+1.vue-summernote�е�src/plugins/editor/index.js ��ͷ����Ҫ�滻Ϊ
+var $ = require('jquery')
+require('summernote')
+
+require('bootstrap')
+
+require('bootstrap/dist/css/bootstrap.min.css')
+
+require('summernote/dist/summernote.css')
+
+require('summernote/dist/lang/summernote-zh-CN.min.js')
+
+2.summernote�е�summernote/dist/summernote.css��Ҫ�滻Ϊ�ļ���../summernote.css�ļ�
+
+3.sweet-modal-vue�е�package.json����Ҫ���
+"dependencies": {
+    
+"css-loader": "^0.28.11",
+    
+"stylus": "^0.54.5",
+    
+"stylus-loader": "^3.0.2",
+    
+"vue": "^2.5.2",
+    
+"vue-style-loader": "^3.1.2"
+  
+}
+Ȼ����а�װ����װ�����̣�
+1. cd node_modules/sweet-modal-vue �س�
+2.cnpm install 
+3. ../../���ص�ԭʼĿ¼
+
+4.改变vue-image-crop-upload
+改变
+if (this.status === 200 || this.status === 201) {
+  resolve(this.responseText)
+  // resolve(JSON.parse(this.responseText));
+}
+
+
+5.sweet-modal-vue 中的plugin.js修改一下，兼容ie
+export default {
+	install:function (Vue, options) {
+		Vue.component('SweetModal', SweetModal)
+		Vue.component('SweetModalTab', SweetModalTab)
+	}
+}

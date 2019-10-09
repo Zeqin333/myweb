@@ -1,0 +1,110 @@
+@import './variable'
+
+//placeholder变换颜色
+changeColor($color)
+  input::-webkit-input-placeholder
+    color $color
+  input::-moz-placeholder /* Mozilla Firefox 19+ */
+    color $color
+  input:-moz-placeholder /* Mozilla Firefox 4 to 18 */
+    color $color
+  input:-ms-input-placeholder /* Internet Explorer 10-11 */ 
+    color $color
+
+scaleImg($time,$scale)
+  transition-duration $time
+  &:hover
+    transform scale($scale)
+animate($time,$Y,$scale)
+  transition-duration $time
+  &:hover
+    transform translateY($Y) scale($scale)
+    img
+      transform scale(1.3)
+
+bounce()
+  animation bounce 0.7s ease-in-out infinite
+  animation-delay 0.3s
+  @keyframes bounce
+    0%, 100%
+      -webkit-transform scaleX(1) translateY(0)
+      transform scaleX(1) translateY(0)
+    50%
+      -webkit-transform scaleX(0.9) translateY(-10px)
+      transform scaleX(0.9) translateY(-10px)
+
+addShadow()
+  -webkit-animation shadow 0.7s ease-in-out infinite
+  animation shadow 0.7s ease-in-out infinite
+  -webkit-animation-delay 0.3s
+  animation-delay 0.3s
+  @keyframes shadow
+    0%, 100%
+      -webkit-transform scaleX(1)
+      transform scaleX(1)
+    50%
+      -webkit-transform scaleX(0.9)
+      transform scaleX(0.9)
+
+addScale()
+  transition all 1s ease-in-out
+  &:hover
+    transform rotate3d(0,1,0,360deg) scale(1.1)
+simpleScale()
+  transition all .3s ease-in-out
+  &:hover
+    transform translateY(-10px) scale(1.1)
+
+addrotateY()
+  transition all 1s ease-in-out
+  &:hover
+    transform rotate3d(0,1,0,360deg)
+
+addrotateZ()
+  transition all .6s ease-in-out
+  &:hover
+    transform rotate3d(0,0,1,360deg)
+
+
+hoverAfter()
+  &.active 
+    color $color-theme-d 
+    text-decoration underline
+  &::after 
+    content ''
+    display inline-block
+    width 1px
+    height 15px
+    background $color-border
+    margin-left 14px
+    vertical-align middle
+  &:hover 
+    color $color-theme-d 
+    text-decoration underline
+
+addAfter()
+  position relative 
+  left 0
+  top 0
+  &::after 
+    content '……'
+    width: 55px;
+    height: 25px;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+shadow()
+  simpleScale()
+  box-shadow 1px 1px 3px 1px $color-shadow
+
+upImage() 
+  background transparent 
+  position absolute 
+  font-size 0 
+  border none
+
+
+  
+      
+      
